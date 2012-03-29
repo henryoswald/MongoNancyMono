@@ -1,0 +1,7 @@
+*.pidb
+*.userprefs
+AssemblyInfo.cs
+[Bb]in/
+[Dd]ebug/
+[Oo]bj/
+[Rr]elease/
