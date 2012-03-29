@@ -13,7 +13,7 @@ namespace NancyTest
 		PersonRepository repository = new PersonRepository();
 		public TestModule ()
 		{
-			Get["/"] = req => "Hello World";
+			Get["/status"] = req => "Working";
 			
 			Post["/person"] = req => 
 			{
@@ -26,6 +26,19 @@ namespace NancyTest
 			{
 				var person = repository.FindPerson();
 				return person.Name;
+			};
+			
+			Patch["/person/{id}"] = req =>
+			{
+				var id = (string) req.id;
+				//Person model = this.Bind();
+				repository.Update(id);
+				return id.ToString();
+			};
+			
+			Delete["/person/{id}"] = req => {
+				repository.Delete(req.id);
+				return "done";
 			};
 		}
 	}

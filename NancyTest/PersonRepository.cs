@@ -17,13 +17,14 @@ namespace NancyTest
 	{
 		MongoServer _server;
 		MongoDatabase _peopleDb;
+		MongoCollection _people;
 		
 		public PersonRepository()
 		{	
 			string connectionString = "mongodb://localhost";
 			_server = MongoServer.Create(connectionString);
 			_peopleDb = _server.GetDatabase("Mono");
-			
+			_people = _peopleDb.GetCollection<Person>("Person");
 
 		}
 		
@@ -40,12 +41,35 @@ namespace NancyTest
 		{
 		 	using (_server.RequestStart(_peopleDb))
 		 	{
-                var people = _peopleDb.GetCollection<Person>("Person");
-				var person = people.FindOneAs<Person>();
+				var person = _people.FindOneAs<Person>();
 				return person;
-				//return person;					
             }
-			
+		}
+		
+		public void Update(string id)
+		{
+			using (_server.RequestStart(_peopleDb))
+		 	{
+				var query = new QueryDocument(){
+					{ "_id", ObjectId.Parse(id) }
+				};
+				var update = new UpdateDocument{
+					{"$set", new BsonDocument("Corners",500)}
+				};
+				
+				var sort = new SortByDocument();
+				_people.FindAndModify(query, sort,update);
+			}
+		}
+		
+		public void Delete(string id){
+			using (_server.RequestStart(_peopleDb))
+		 	{
+				var query = new QueryDocument(){
+					{ "_id", ObjectId.Parse(id) }
+				};
+				_people.Remove(query);
+			}
 		}
 	}
 }
