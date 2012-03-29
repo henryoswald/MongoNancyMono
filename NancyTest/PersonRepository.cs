@@ -36,21 +36,21 @@ namespace NancyTest
             }
 		}
 		
-		public Person FindPerson()
+		public Person FindPerson(string id)
 		{
 		 	using (_server.RequestStart(_peopleDb))
 		 	{
-				var person = _people.FindOneAs<Person>();
+				var person = _people.FindOneByIdAs<Person>(ObjectId.Parse(id));
 				return person;
             }
 		}
 		
-		public void Update(string id)
+		public void Update(string id, Person updatedProperties)
 		{
 			using (_server.RequestStart(_peopleDb))
 		 	{
-				var person = _people.FindOneAs<Person>();
-				person.Name = "George";
+				var person = _people.FindOneByIdAs<Person>(ObjectId.Parse(id));
+				person.Name = updatedProperties.Name;
 				_people.Save(person);
 			}
 		}

@@ -22,15 +22,16 @@ namespace NancyTest
 				return "OK";
 			};
 			
-			Get["/person"] = req =>
+			Get["/person/{id}"] = req =>
 			{
-				var person = repository.FindPerson();
+				var person = repository.FindPerson(req.id);
 				return person.Name;
 			};
 			
 			Patch["/person/{id}"] = req =>
 			{
-				repository.Update(req.id);
+				Person model = this.Bind();
+				repository.Update(req.id, model);
 				return "updated";
 			};
 			
