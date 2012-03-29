@@ -30,15 +30,13 @@ namespace NancyTest
 			
 			Patch["/person/{id}"] = req =>
 			{
-				var id = (string) req.id;
-				//Person model = this.Bind();
-				repository.Update(id);
-				return id.ToString();
+				repository.Update(req.id);
+				return "updated";
 			};
 			
 			Delete["/person/{id}"] = req => {
-				repository.Delete(req.id);
-				return "done";
+				repository.Delete((string)req.id);
+				return "deleted " + req.id;
 			};
 		}
 	}

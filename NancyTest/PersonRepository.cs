@@ -32,8 +32,7 @@ namespace NancyTest
 		{
             using (_server.RequestStart(_peopleDb))
             {
-	            var collection = _peopleDb.GetCollection<Person>("Person");
-				collection.Save(person);
+				_people.Save(person);
             }
 		}
 		
@@ -50,15 +49,9 @@ namespace NancyTest
 		{
 			using (_server.RequestStart(_peopleDb))
 		 	{
-				var query = new QueryDocument(){
-					{ "_id", ObjectId.Parse(id) }
-				};
-				var update = new UpdateDocument{
-					{"$set", new BsonDocument("Corners",500)}
-				};
-				
-				var sort = new SortByDocument();
-				_people.FindAndModify(query, sort,update);
+				var person = _people.FindOneAs<Person>();
+				person.Name = "George";
+				_people.Save(person);
 			}
 		}
 		
