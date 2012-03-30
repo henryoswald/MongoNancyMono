@@ -11,7 +11,7 @@ using Nancy.ModelBinding;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Conventions;
 
-namespace NancyTest
+namespace NancyMongoCrud
 {
 	public class PersonRepository
 	{
@@ -28,12 +28,13 @@ namespace NancyTest
 
 		}
 		
-		public void Save(Person person)
+		public Person Save(Person person)
 		{
             using (_server.RequestStart(_peopleDb))
             {
 				_people.Save(person);
             }
+			return person;
 		}
 		
 		public Person FindPerson(string id)
