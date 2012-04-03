@@ -29,8 +29,6 @@ namespace NancyMongoCrud.Acceptance.Tests
 		    });
 		
 		    Assert.AreEqual(result.StatusCode, HttpStatusCode.OK);
-			var html = result.Body.ToString();
-			Assert.That(html.Contains("Working"));
 		}
 		
 		
