@@ -5,3 +5,7 @@ AssemblyInfo.cs
 [Dd]ebug/
 [Oo]bj/
 [Rr]elease/
+
+test-results/*
+test-results
+

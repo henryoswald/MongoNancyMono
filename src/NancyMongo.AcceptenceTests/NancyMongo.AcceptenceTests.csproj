@@ -5,17 +5,17 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{10E0E2F9-6DFD-4F9C-B097-0A4A02BEC5F4}</ProjectGuid>
+    <ProjectGuid>{CB0DE866-62FC-4F4A-B5A9-57CFD510CB74}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>AcceptenceTests</RootNamespace>
-    <AssemblyName>AcceptenceTests</AssemblyName>
+    <RootNamespace>NancyMongo.AcceptenceTests</RootNamespace>
+    <AssemblyName>NancyMongo.AcceptenceTests</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
+    <DefineConstants>DEBUG</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
@@ -30,28 +30,23 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="nunit.core, Version=2.4.8.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77" />
     <Reference Include="nunit.framework, Version=2.4.8.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77" />
-    <Reference Include="Nancy.Testing">
-      <HintPath>..\lib\Nancy.Testing.dll</HintPath>
-    </Reference>
     <Reference Include="Nancy">
-      <HintPath>..\lib\Nancy.dll</HintPath>
+      <HintPath>..\..\lib\Nancy.dll</HintPath>
     </Reference>
-    <Reference Include="HtmlAgilityPack">
-      <HintPath>..\lib\HtmlAgilityPack.dll</HintPath>
-    </Reference>
-    <Reference Include="HtmlAgilityPlus">
-      <HintPath>..\lib\HtmlAgilityPlus.dll</HintPath>
+    <Reference Include="Nancy.Testing">
+      <HintPath>..\..\lib\Nancy.Testing.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PersonRouterTests.cs" />
+    <Compile Include="Test.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\NancyTest\NancyTest.csproj">
+    <ProjectReference Include="..\..\NancyTest\NancyMongoCrud.csproj">
       <Project>{ACCF5DFE-914E-4B80-BC11-DDC2ABDF1C47}</Project>
-      <Name>NancyTest</Name>
+      <Name>NancyMongoCrud</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>
