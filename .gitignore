@@ -12,5 +12,3 @@ _ReSharper.ZPins
 *.ReSharper
 
 *.crunch
-*
-/packages
