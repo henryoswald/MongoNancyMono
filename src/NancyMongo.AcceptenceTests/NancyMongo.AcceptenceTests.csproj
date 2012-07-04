@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -29,24 +29,37 @@
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="nunit.core, Version=2.4.8.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77" />
-    <Reference Include="nunit.framework, Version=2.4.8.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77" />
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\..\packages\Nancy.Testing.0.11.0\lib\net40\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPlus">
+      <HintPath>..\..\packages\Nancy.Testing.0.11.0\lib\net40\HtmlAgilityPlus.dll</HintPath>
+    </Reference>
     <Reference Include="Nancy">
-      <HintPath>..\..\lib\Nancy.dll</HintPath>
+      <HintPath>..\..\packages\Nancy.0.11.0\lib\net40\Nancy.dll</HintPath>
     </Reference>
     <Reference Include="Nancy.Testing">
-      <HintPath>..\..\lib\Nancy.Testing.dll</HintPath>
+      <HintPath>..\..\packages\Nancy.Testing.0.11.0\lib\net40\Nancy.Testing.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\..\packages\NUnit.2.6.0.12054\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="xunit">
+      <HintPath>..\..\packages\xunit.1.7.0.1540\lib\xunit.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Test.cs" />
   </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\..\NancyTest\NancyMongoCrud.csproj">
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NancyMongo.Web\NancyMongo.Web.csproj">
       <Project>{ACCF5DFE-914E-4B80-BC11-DDC2ABDF1C47}</Project>
-      <Name>NancyMongoCrud</Name>
+      <Name>NancyMongo.Web</Name>
     </ProjectReference>
   </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

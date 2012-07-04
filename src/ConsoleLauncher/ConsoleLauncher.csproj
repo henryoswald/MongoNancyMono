@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -29,6 +29,9 @@
     <Externalconsole>true</Externalconsole>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Nancy">
+      <HintPath>..\..\packages\Nancy.0.11.0\lib\net40\Nancy.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="Nancy.Hosting.Self">
       <HintPath>..\..\lib\Nancy.Hosting.Self.dll</HintPath>
@@ -37,11 +40,8 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
   </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\..\NancyTest\NancyMongoCrud.csproj">
-      <Project>{ACCF5DFE-914E-4B80-BC11-DDC2ABDF1C47}</Project>
-      <Name>NancyMongoCrud</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

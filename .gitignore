@@ -1,11 +1,16 @@
-*.pidb
-*.userprefs
-AssemblyInfo.cs
-[Bb]in/
-[Dd]ebug/
-[Oo]bj/
-[Rr]elease/
+bin
 
-test-results/*
-test-results
+obj
 
+*.user
+
+*.suo
+
+*.cache
+_ReSharper.ZPins
+
+*.ReSharper
+
+*.crunch
+*
+/packages

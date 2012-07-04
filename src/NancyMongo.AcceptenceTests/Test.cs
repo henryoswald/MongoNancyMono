@@ -1,14 +1,9 @@
-using System;
-using NUnit;
 using NUnit.Framework;
 using Nancy;
 using Nancy.Testing;
-using Nancy.Bootstrapper;
-using NancyMongoCrud;
+using NancyMongo.Web;
 
-
-
-namespace NancyMongoCrud.Acceptance.Tests
+namespace NancyMongo.AcceptenceTests
 {
 	[TestFixture]
 	public class CrudTests
